@@ -9,16 +9,18 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=visibility_off" />
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="bg-slate-700">
 
     <div id="first" class="flex  justify-center items-center flex-col w-full  bg-cover bg-center h-screen "
-        style="background-image: url(../Assets/back2.jpg);"> 
+        style="background-image: url(../Assets/back2.jpg);">
 
         <div class="bg-white  w-[40%] rounded-[10px] p-2 ">
             <div class="flex justify-center border-black border-[15px] rounded-md items-center">
-                <h1 class="text-3xl p-1 font-bold">Kanif<span class="text-yellow-400">y</span></h1>
+                <h1 class="kanif text-3xl p-1 ">Kanif<span
+                        class="text-yellow-400">y</span></h1>
             </div>
 
             <div class="flex justify-center items-center flex-col mt-2 ">
@@ -60,12 +62,12 @@
         </div>
     </div>
 
-    <div id="second" class="hidden flex  justify-center items-center flex-col w-full  bg-cover bg-center h-screen"
+    <div id="second" class=" hidden flex  justify-center items-center flex-col w-full  bg-cover bg-center h-screen"
         style="background-image: url(../Assets/back2.jpg)" ;>
 
         <div class="bg-white  w-[40%] rounded-[10px] p-2">
             <div class="flex justify-center border-black border-[15px] rounded-md items-center">
-                <h1 class="text-3xl p-1 font-bold">Kanif<span class="text-yellow-400">y</span></h1>
+                <h1 class="kanif text-3xl p-1 ">Kanif<span class="text-yellow-400">y</span></h1>
             </div>
             <div class="flex justify-center items-center flex-col mt-2 ">
 
@@ -77,7 +79,8 @@
                     type="text" name="" id="Login-pass">
             </div>
             <div class="flex justify-center items-center flex-col mt-2 p-1">
-                <button class="w-[100%] font-bold bg-green-700 text-white p-1 rounded-md cursor-pointer" id="Sign-in">Sign In</button>
+                <button class="w-[100%] font-bold bg-green-700 text-white p-1 rounded-md cursor-pointer"
+                    id="Sign-in">Sign In</button>
                 <h2 class="font-bold text-sm text-center">If you don't have an account <span
                         class="text-blue-800 cursor-pointer" id="logchange">Sign Up</span></h2>
             </div>
@@ -86,7 +89,6 @@
 </body>
 <script type="module" src="auth.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<!-- //or -->
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

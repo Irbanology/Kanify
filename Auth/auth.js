@@ -13,6 +13,7 @@ const signDiv = document.getElementById('signchange')
 const logDiv = document.getElementById('logchange')
 
 
+
 signDiv.addEventListener('click', logshow)
 logDiv.addEventListener('click', signshow)
 
@@ -35,6 +36,8 @@ const signIn = document.getElementById('Sign-in')
 console.log(signup, signIn);
 
 signup.addEventListener('click', SignUp)
+signIn.addEventListener('click', logIn)
+
 
 async function SignUp() {
     console.log("chal rah");
@@ -100,3 +103,42 @@ async function SignUp() {
 
 }
 
+async function logIn() {
+    console.log("Hi");
+    const email = document.getElementById('Login-email')
+    const pass = document.getElementById('Login-pass')
+    console.log(email, pass);
+    if (!email.value || !pass.value) {
+        Swal.fire({
+            icon: "error",
+            title: "Fil All...",
+        });
+        return
+    }
+    console.log("start hora hai yhn se");
+
+    const { data, error } = await supabasePro.auth.signInWithPassword({
+        email: email.value,
+        password: pass.value,
+    })
+    if (!error) {
+        console.log(data);
+        console.log(data.user.id);
+        const id = data.user.id
+        const { data: tabdata, error: errdata } = await supabasePro
+            .from('userData')
+            .select()
+            .eq('Uid', id)
+            .single()
+
+        console.log(tabdata.Role);
+
+        // return
+        if (tabdata.Role == 'Seller') {
+            window.location.href = '../Dashboard/seller.html'
+        } else if (tabdata.Role == 'Customer') {
+            window.location.href = '../Home/Home.html'
+        }
+    }
+
+}

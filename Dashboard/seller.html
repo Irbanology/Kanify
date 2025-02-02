@@ -6,12 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-    <h1>Hello World</h1>
+    <div class="h-screen bg-cover bg-center bg-[#003e4b]" style="background-image: url(../Assets/back2.jpg);">
+        <div class="flex justify-between items-center bg-neutral-200">
+            <!-- <h1 class="kanif text-white text-5xl ">Kanify</h1> -->
+            <h1 class="kanif text-black text-5xl p-2 cursor-pointer">Kanif<span class="text-yellow-400">y</span></h1>
+            <div class="w-[50%]">
+                <ul class="flex justify-around font-bold ">
+                    <li class="cursor-pointer">Sales</li>
+                    <li class="cursor-pointer">Product reviews</li>
+                    <li class="cursor-pointer">About Us</li>
+                </ul>
+            </div>
+        </div>
+        <div class="">  </div>
+        <div class=""></div>
+    </div>
 </body>
-<script src="seller.js"></script>
+<script type="module" src="seller.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

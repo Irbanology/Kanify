@@ -107,7 +107,7 @@ async function logIn() {
     console.log("Hi");
     const email = document.getElementById('Login-email')
     const pass = document.getElementById('Login-pass')
-    console.log(email, pass);
+    console.log(email.value, pass.value);
     if (!email.value || !pass.value) {
         Swal.fire({
             icon: "error",
@@ -140,5 +140,11 @@ async function logIn() {
             window.location.href = '../Home/Home.html'
         }
     }
+    if (error) {
+        console.log(error);
+        return
+    }
 
+    pass.value = ""
+    email.value = ""
 }

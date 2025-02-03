@@ -6,24 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
-    <div class="h-screen bg-cover bg-center bg-[#003e4b]" style="background-image: url(../Assets/back2.jpg);">
-        <div class="flex justify-between items-center bg-neutral-200">
-            <!-- <h1 class="kanif text-white text-5xl ">Kanify</h1> -->
-            <h1 class="kanif text-black text-5xl p-2 cursor-pointer">Kanif<span class="text-yellow-400">y</span></h1>
-            <div class="w-[50%]">
-                <ul class="flex justify-around font-bold ">
-                    <li class="cursor-pointer">Sales</li>
-                    <li class="cursor-pointer">Product reviews</li>
-                    <li class="cursor-pointer">About Us</li>
+<body class="bg-slate-700 bg-cover bg-center h-screen">
+    <header class="bg-stone-800  z-10">
+        <nav class=" z-10 flex  items-center justify-between px-12 h-16 lg:gap-10 ">
+            <a class="kanif text-white z-10  text-3xl border-1 border-white px-2 py-1 cursor-pointer"
+                href="#">Kanif<span class="text-yellow-400">y</span></a>
+            <div
+                class="dropdown-menu text-white absolute -top-full left-0  max-lg:bg-stone-950 w-full flex flex-col gap-6 items-center py-2 text-lg font-bold lg:static lg:flex-row lg:justify-between">
+                <ul class="flex flex-col  items-center gap-6 lg:flex-row lg:gap-8">
+                    <li class="hover:text-orange-500 cursor-pointer transition-all  duration-400">Your All Products</li>
+                    <li class="hover:text-orange-500 cursor-pointer  transition-all  duration-400">Reviews</li>
+                    <li class="hover:text-orange-500 cursor-pointer  transition-all  duration-400">Sales</li>
+                    <li class="hover:text-orange-500 cursor-pointer  transition-all  duration-400">Profile</li>
+
                 </ul>
+                <div class=" but flex flex-col  items-center gap-2 lg:flex-row lg:gap-4 ">
+
+                    <i
+                        class="fa-solid fa-user fa-lg text-white px-2 py-2  m-1 hover:text-orange-500 cursor-pointer transition-all  duration-400"></i>
+                </div>
+            </div>
+            <div class="z-10 toggle-button lg:hidden cursor-pointer">
+                <i class="fa-solid fa-bars fa-lg text-white "></i>
+            </div>
+            <div class="hidden z-10 toggle-button2 lg:hidden cursor-pointer">
+                <i class="fa-solid fa-xmark fa-lg text-white "></i>
+            </div>
+        </nav>
+    </header>
+    <div class="prductDiv w-full flex p-2 justify-evenly items-center ">
+        <div
+            class="card w-60 p-2 bg-white rounded-xl transform hover:translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl mt-4 mb-4 lg:mt-0">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/ace19968cc7c471bae66b3f1c0b1a0ea.jpg_720x720q80.jpg_.webp"
+                alt="">
+            <div class="p-2">
+                <h2 class="font-bold text-lg mb-2">Heading</h2>
+                <span class="text-xl font-semibold">Rs. 1800.00</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-sm line-through opacity-75">Rs. 2000.00</span>
+                <span class="font-bold text-sm p-2 bg-yellow-300 rounded-s-2xl text-gray-600">Save 10%</span>
+            </div>
+            <div class="flex items-center">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <div class="">  </div>
-        <div class=""></div>
+    </div>
+    <div class="">
+        <label for="title"></label>
+        <input type="text" name="title" id="">
+        <label for="description"></label>
+        <input type="text" name="description" id="">
+        <label for="price"></label>
+        <input type="text" name="price" id="">
     </div>
 </body>
 <script type="module" src="seller.js"></script>

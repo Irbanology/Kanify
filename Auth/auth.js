@@ -83,7 +83,8 @@ async function SignUp() {
     const { data: tabdata, error: taberr } = await supabasePro
         .from('userData')
         .insert({
-            FullName: firstname.value + " " + lastname.value,
+            FirstName: firstname.value,
+            lastName: lastname.value,
             Email: email.value,
             Pass: password.value,
             Role: role.value,
@@ -92,6 +93,10 @@ async function SignUp() {
         .select()
     if (!error) {
         console.log(tabdata);
+        Swal.fire({
+            icon: "success",
+            title: "Best",
+        });
     }
 
     firstname.value = ""

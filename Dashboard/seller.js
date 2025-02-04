@@ -2,6 +2,8 @@ import supabasePro from "../Db/Supabase.js";
 
 console.log("hi");
 
+
+
 const toggleBar = document.querySelector('.toggle-button')
 const toggleBar2 = document.querySelector('.toggle-button2')
 const dropdownMenu = document.querySelector('.dropdown-menu ')
@@ -25,6 +27,7 @@ toggleBar2.addEventListener('click', () => {
 const loogIn = document.querySelector('.login')
 const signUp = document.querySelector('.signup')
 const butDiv = document.querySelector('.but')
+
 const Token = JSON.parse(localStorage.getItem('sb-xtgndbqirumlyrlqmfyf-auth-token'))
 const parsedId = Token.user.id
 console.log(parsedId);
@@ -37,6 +40,5 @@ async function users() {
         .single()
 
     console.log(data);
-
 }
 users()  

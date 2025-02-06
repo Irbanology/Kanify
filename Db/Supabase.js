@@ -1,5 +1,5 @@
 const supabaseUrl = 'https://xtgndbqirumlyrlqmfyf.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0Z25kYnFpcnVtbHlybHFtZnlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5ODY4NzgsImV4cCI6MjA1MzU2Mjg3OH0.jvzqZyF1bHXhWFYASfQnc-t3PsxlASpm0WlrOh3sLBo'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0Z25kYnFpcnVtbHlybHFtZnlmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczNzk4Njg3OCwiZXhwIjoyMDUzNTYyODc4fQ.Nj1Dse_6ULTVsk6gwnhJL2x7W6UWOWtORfUGf-QLjX0'
 const supabasePro = supabase.createClient(supabaseUrl, supabaseKey)
 console.log(supabasePro);
 

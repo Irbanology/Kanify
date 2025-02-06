@@ -6,3 +6,17 @@
 .kanif {
     font-family: Cartoon;
 }
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #1d293d;
+}
+
+
+html::-webkit-scrollbar-thumb {
+    background-color: #f54a00;
+    border-radius: 50px;
+}

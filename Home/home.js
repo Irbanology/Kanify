@@ -1,9 +1,12 @@
 import supabasePro from "../Db/Supabase.js";
+const supabaseUrl = 'https://xtgndbqirumlyrlqmfyf.supabase.co'
 
 
 const toggleBar = document.querySelector('.toggle-button')
 const toggleBar2 = document.querySelector('.toggle-button2')
 const dropdownMenu = document.querySelector('.dropdown-menu ')
+const producDiv = document.querySelector('.prductDiv')
+
 
 toggleBar.addEventListener('click', () => {
     console.log("i am chal");
@@ -34,11 +37,11 @@ console.log(loogIn, signUp);
 // console.log(parsedId)
 
 try {
-    const Token = JSON.parse(localStorage.getItem('sb-xtgndbqirumlyrlqmfyf-auth-token'))
-    const parsedId = Token.user.id
-    console.log(parsedId)
+    const { data: datasess, error: errsess } = await supabasePro.auth.getSession()
+    const Uid = datasess.session.user.id
+    console.log(Uid)
     butDiv.classList.add('hidden')
-    users(parsedId)
+    users(Uid)
     icon.classList.remove('hidden')
 } catch (error) {
     if (error) {
@@ -46,24 +49,66 @@ try {
     }
 }
 
-// const divv = document.querySelector('.img')
-// const imageSrc = ['https://img.lazcdn.com/us/domino/d810287b-6879-41b1-87c5-8aa93fef5ca5_PK-1976-688.jpg_2200x2200q80.jpg', 'https://img.lazcdn.com/us/domino/e1c6d3ac-6ddd-4298-b533-e46328707aa2_PK-1976-688.jpg_2200x2200q80.jpg', 'https://img.lazcdn.com/us/domino/e1c6d3ac-6ddd-4298-b533-e46328707aa2_PK-1976-688.jpg_2200x2200q80.jpg', 'https://img.lazcdn.com/us/domino/e9c1fbcc-5975-4596-842f-63749892427b_PK-1976-688.jpg_2200x2200q80.jpg', ' https://img.lazcdn.com/us/domino/1bd050cb-e3ac-4087-8b3a-c09117f305de_PK-1976-688.jpg_2200x2200q80.jpg', 'https://img.lazcdn.com/us/domino/3a27ba7b-8165-4cbe-95eb-57a7155b30cc_PK-1976-688.jpg_2200x2200q80.jpg']
-// console.log(imageSrc);
 
-// for (let index = 0; index < imageSrc.length; index++) {
-//     console.log(imageSrc[index]);
-//     const img = document.createElement('img')
-//     img.setAttribute('src', imageSrc[index])
-//     divv.appendChild(img)
-// }
-
-async function users(parsedId) {
+// Checking For a User
+async function users(Uid) {
     const { data, error } = await supabasePro
         .from('userData')
         .select()
-        .eq('Uid', parsedId)
+        .eq('Uid', Uid)
         .single()
+    // console.log(data);
+}
 
+// Fetching Product
+async function Fetchproduct() {
+    const { data, error } = await supabasePro
+        .from('productData')
+        .select()
     console.log(data);
+    for (let i = 0; i < data.length; i++) {
+        let card = document.createElement('div')
+        const prod = data[i]
+        console.log(prod);
+
+        card.innerHTML = `<div
+            class="card  w-60 p-2 bg-white rounded-xl transform hover:translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl mt-4 mb-4 lg:mt-0">
+            <img src="${supabaseUrl}/storage/v1/object/${prod.ImageUrl}"
+                alt="" class="rounded-lg">
+            <div class="">
+
+                <div class="p-2">
+                    <h2 class="font-bold text-lg mb-2">${prod.Title}</h2>
+                    <span class="text-xl font-semibold">Rs. ${prod.DiscountPrice}.00</span>
+                </div>
+                <div class="flex items-center gap-2 px-2">
+                    <span class="text-sm line-through opacity-75">Rs. ${prod.ActualPrice}.00</span>
+                    <span class="font-bold text-sm p-2 bg-yellow-300 rounded-s-2xl text-gray-600">Save 10%</span>
+                </div>
+                <div class="flex items-center mt-2 px-2 gap-1">
+                    <i class="fa-solid fa-star text-yellow-400 w-5"></i>
+                    <i class="fa-solid fa-star text-yellow-400 w-5"></i>
+                    <i class="fa-solid fa-star text-yellow-400 w-5"></i>
+                    <i class="fa-solid fa-star text-yellow-400 w-5"></i>
+                    <i class="fa-solid fa-star text-yellow-400 w-5"></i>
+                    <p class="text-xs font-bold font-gray-700">Best Rating</p>
+                </div>
+                <p class="text-sm text-gray-600 mb-2 mt-2 px-2">${prod.Description}</p>
+            </div>
+            <div class="flex items-center justify-evenly gap-2 mb-3">
+                <button
+                    class=" px-3 py-1 bg-gray-300 cursor-pointer hover:text-white hover:bg-black rounded-lg text-black poppins-semibold ">Buy
+                    Now</button>
+                <button
+                    class="px-3 py-1 bg-gray-300 cursor-pointer hover:bg-black rounded-lg hover:text-white text-black"><i
+                        class="fa-solid  fa-cart-shopping cursor-pointer"></i> </button>
+                <button class="px-3 py-1 bg-gray-300 cursor-pointer hover:bg-black hover:text-red-900 rounded-lg">
+                    <i class="fa-solid fa-heart text-red-600"></i>
+                </button>
+            </div>
+        </div>`
+        producDiv.appendChild(card)
+    }
 
 }
+Fetchproduct()

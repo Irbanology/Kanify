@@ -28,18 +28,24 @@ const numItems = document.getElementById('NumberOfitems')
 console.log(numItems);
 
 
-// const Token = JSON.parse(localStorage.getItem('sb-xtgndbqirumlyrlqmfyf-auth-token'))
-// const parsedId = Token.user.id
-// console.log(parsedId);
 let uid = null
 async function users() {
     const { data: datasess, error: errsess } = await supabasePro.auth.getSession()
     const Uid = datasess.session.user.id
     uid = Uid
+    console.log(uid);
+
+    let session = datasess.session
+    if (session === null) {
+        window.location.href = '../Auth/auth.html'
+        console.log("In");
+    }
+
+    // return
     const { data, error } = await supabasePro
         .from('userData')
         .select()
-        .eq('Uid', Uid)
+        .eq('Uid', uid)
         .single()
     console.log(data);
 }
@@ -98,12 +104,3 @@ async function AddProduct() {
     }
 
 }
-// AddProduct()
-
-// Email Marketer
-// Data Scraper
-// Front Seller (Bark)
-// Digital Marketing Manager
-// Technical Content Writer
-// Trainee Sales Executive (Chat Base)
-// Sales Executive (Chat Base)

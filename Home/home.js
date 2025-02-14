@@ -32,10 +32,6 @@ console.log(butDiv);
 
 console.log(loogIn, signUp);
 
-// const Token = JSON.parse(localStorage.getItem('sb-xtgndbqirumlyrlqmfyf-auth-token'))
-// const parsedId = Token.user.id
-// console.log(parsedId)
-
 try {
     const { data: datasess, error: errsess } = await supabasePro.auth.getSession()
     const Uid = datasess.session.user.id
@@ -57,7 +53,6 @@ async function users(Uid) {
         .select()
         .eq('Uid', Uid)
         .single()
-    // console.log(data);
 }
 
 // Fetching Product
@@ -72,11 +67,10 @@ async function Fetchproduct() {
         console.log(prod);
 
         card.innerHTML = `<div
-            class="card  w-60 p-2 bg-white rounded-xl transform hover:translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl mt-4 mb-4 lg:mt-0">
+            class="w-60 p-2 bg-white rounded-xl transform hover:translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl mt-4 mb-4 lg:mt-0">
             <img src="${supabaseUrl}/storage/v1/object/${prod.ImageUrl}"
                 alt="" class="rounded-lg">
             <div class="">
-
                 <div class="p-2">
                     <h2 class="font-bold text-lg mb-2">${prod.Title}</h2>
                     <span class="text-xl font-semibold">Rs. ${prod.DiscountPrice}.00</span>
